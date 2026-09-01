@@ -10,20 +10,22 @@
  */
 class Solution {
 public:
-        vector<int> a;
-    Solution(ListNode* head) {
-        ListNode* temp = head;
-        while(temp!=NULL){
-            a.push_back(temp->val);
-            temp = temp->next;
-        }
-    }
-    
+    Solution(ListNode* head) { Head = head; }
+         ListNode* Head;
+
     int getRandom() {
-        int n = a.size();
-        int random_index = rand() % n;
-        return a[random_index];
+        int count = 1;
+        int result = 0;
+        ListNode* temp = Head;
+        while (temp != NULL) {
+            if (rand() % count  < (1.0 / count)){
+                result = temp->val;
+                }
+        count++;
+        temp = temp->next;
     }
+    return result;
+}
 };
 
 /**
