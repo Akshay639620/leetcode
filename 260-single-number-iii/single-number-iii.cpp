@@ -5,7 +5,7 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             XOR = XOR^ nums[i];
         }
-        int rightShift = XOR & (-XOR);
+        int rightShift = (XOR & (XOR-1)) ^ XOR;
         int b1 = 0,b2 = 0;
         for(int i = 0 ;i<nums.size();i++){
             if(nums[i] & rightShift) b1 =b1 ^ nums[i];
